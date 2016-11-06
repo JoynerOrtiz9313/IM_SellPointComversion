@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="IM_DB_Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="IM_DB_ModelStoreContainer">
+          <EntitySet Name="Cargos" EntityType="IM_DB_Model.Store.Cargos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Clases_Productos" EntityType="IM_DB_Model.Store.Clases_Productos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Clientes" EntityType="IM_DB_Model.Store.Clientes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Facturas" EntityType="IM_DB_Model.Store.Facturas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Nombres_Productos" EntityType="IM_DB_Model.Store.Nombres_Productos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Parametros_Generales" EntityType="IM_DB_Model.Store.Parametros_Generales" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Productos" EntityType="IM_DB_Model.Store.Productos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Productos_V" EntityType="IM_DB_Model.Store.Productos_V" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tipos_ID_Cliente" EntityType="IM_DB_Model.Store.Tipos_ID_Cliente" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="IM_DB_Model.Store.Users" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Ventas" EntityType="IM_DB_Model.Store.Ventas" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Fact_Client" Association="IM_DB_Model.Store.FK_Fact_Client">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Facturas" EntitySet="Facturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Venta_Factura" Association="IM_DB_Model.Store.FK_Venta_Factura">
+            <End Role="Facturas" EntitySet="Facturas" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Cargos">
+          <Key>
+            <PropertyRef Name="ID_Cargo" />
+          </Key>
+          <Property Name="ID_Cargo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Clases_Productos">
+          <Key>
+            <PropertyRef Name="ID_CLase" />
+          </Key>
+          <Property Name="ID_CLase" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="Cedula_RNC" />
+          </Key>
+          <Property Name="Cedula_RNC" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="TipoID" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Direccion" Type="varchar" MaxLength="300" />
+          <Property Name="Telefono1" Type="varchar" MaxLength="30" />
+          <Property Name="Telefono2" Type="varchar" MaxLength="30" />
+          <Property Name="Correo" Type="varchar" MaxLength="100" />
+          <Property Name="Comentario" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Facturas">
+          <Key>
+            <PropertyRef Name="ID_Factura" />
+          </Key>
+          <Property Name="ID_Factura" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Cliente" Type="varchar" MaxLength="50" />
+          <Property Name="Cant_Articulos" Type="int" Nullable="false" />
+          <Property Name="Monto_Factura" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="Fecha" Type="datetime" Nullable="false" />
+          <Property Name="vendedor" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Nombres_Productos">
+          <Key>
+            <PropertyRef Name="ID_Nombre_Productos" />
+          </Key>
+          <Property Name="ID_Nombre_Productos" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Parametros_Generales">
+          <Key>
+            <PropertyRef Name="NombreParametro" />
+          </Key>
+          <Property Name="NombreParametro" Type="varchar" Nullable="false" MaxLength="120" />
+          <Property Name="Valor" Type="varchar" Nullable="false" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Productos">
+          <Key>
+            <PropertyRef Name="ID_Producto" />
+          </Key>
+          <Property Name="ID_Producto" Type="varchar" Nullable="false" MaxLength="35" />
+          <Property Name="NombreProducto" Type="int" Nullable="false" />
+          <Property Name="Clase" Type="int" Nullable="false" />
+          <Property Name="Precio_Costo" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="Fecha_Ingreso" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Productos_V">
+          <Key>
+            <PropertyRef Name="ID_Producto" />
+          </Key>
+          <Property Name="ID_Producto" Type="varchar" Nullable="false" MaxLength="35" />
+          <Property Name="NombreProducto" Type="int" Nullable="false" />
+          <Property Name="Clase" Type="int" Nullable="false" />
+          <Property Name="Precio_Costo" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="Fecha_Ingreso" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tipos_ID_Cliente">
+          <Key>
+            <PropertyRef Name="ID_TipoID" />
+          </Key>
+          <Property Name="ID_TipoID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="190" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Usr_ID" />
+          </Key>
+          <Property Name="Usr_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Login_Name" Type="varchar" Nullable="false" MaxLength="60" />
+          <Property Name="Login_Pass" Type="varchar" Nullable="false" MaxLength="60" />
+          <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="70" />
+          <Property Name="Cedula" Type="varchar" Nullable="false" MaxLength="22" />
+          <Property Name="Telefono_Movil" Type="varchar" MaxLength="30" />
+          <Property Name="Telefono_Local" Type="varchar" MaxLength="30" />
+          <Property Name="Direccion" Type="varchar" MaxLength="250" />
+          <Property Name="Cargo" Type="int" />
+        </EntityType>
+        <EntityType Name="Ventas">
+          <Key>
+            <PropertyRef Name="ID_Venta" />
+          </Key>
+          <Property Name="ID_Venta" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Factura" Type="int" Nullable="false" />
+          <Property Name="Producto" Type="varchar" MaxLength="35" />
+          <Property Name="Precio_Venta" Type="decimal" Nullable="false" Scale="2" />
+        </EntityType>
+        <Association Name="FK_Fact_Client">
+          <End Role="Clientes" Type="IM_DB_Model.Store.Clientes" Multiplicity="0..1" />
+          <End Role="Facturas" Type="IM_DB_Model.Store.Facturas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="Cedula_RNC" />
+            </Principal>
+            <Dependent Role="Facturas">
+              <PropertyRef Name="Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Venta_Factura">
+          <End Role="Facturas" Type="IM_DB_Model.Store.Facturas" Multiplicity="1" />
+          <End Role="Ventas" Type="IM_DB_Model.Store.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Facturas">
+              <PropertyRef Name="ID_Factura" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="Factura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IM_DB_Model" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="IM_DB_Entities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Cargos" EntityType="IM_DB_Model.Cargos" />
+          <EntitySet Name="Clases_Productos" EntityType="IM_DB_Model.Clases_Productos" />
+          <EntitySet Name="Clientes" EntityType="IM_DB_Model.Clientes" />
+          <EntitySet Name="Facturas" EntityType="IM_DB_Model.Facturas" />
+          <EntitySet Name="Nombres_Productos" EntityType="IM_DB_Model.Nombres_Productos" />
+          <EntitySet Name="Parametros_Generales" EntityType="IM_DB_Model.Parametros_Generales" />
+          <EntitySet Name="Productos" EntityType="IM_DB_Model.Productos" />
+          <EntitySet Name="Productos_V" EntityType="IM_DB_Model.Productos_V" />
+          <EntitySet Name="Tipos_ID_Cliente" EntityType="IM_DB_Model.Tipos_ID_Cliente" />
+          <EntitySet Name="Users" EntityType="IM_DB_Model.Users" />
+          <EntitySet Name="Ventas" EntityType="IM_DB_Model.Ventas" />
+          <AssociationSet Name="FK_Fact_Client" Association="IM_DB_Model.FK_Fact_Client">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Facturas" EntitySet="Facturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Venta_Factura" Association="IM_DB_Model.FK_Venta_Factura">
+            <End Role="Facturas" EntitySet="Facturas" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Cargos">
+          <Key>
+            <PropertyRef Name="ID_Cargo" />
+          </Key>
+          <Property Name="ID_Cargo" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Clases_Productos">
+          <Key>
+            <PropertyRef Name="ID_CLase" />
+          </Key>
+          <Property Name="ID_CLase" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="Cedula_RNC" />
+          </Key>
+          <Property Name="Cedula_RNC" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TipoID" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="Direccion" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="Telefono1" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Telefono2" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Correo" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Comentario" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Facturas" Relationship="IM_DB_Model.FK_Fact_Client" FromRole="Clientes" ToRole="Facturas" />
+        </EntityType>
+        <EntityType Name="Facturas">
+          <Key>
+            <PropertyRef Name="ID_Factura" />
+          </Key>
+          <Property Name="ID_Factura" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Cliente" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Cant_Articulos" Type="Int32" Nullable="false" />
+          <Property Name="Monto_Factura" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="vendedor" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Clientes" Relationship="IM_DB_Model.FK_Fact_Client" FromRole="Facturas" ToRole="Clientes" />
+          <NavigationProperty Name="Ventas" Relationship="IM_DB_Model.FK_Venta_Factura" FromRole="Facturas" ToRole="Ventas" />
+        </EntityType>
+        <EntityType Name="Nombres_Productos">
+          <Key>
+            <PropertyRef Name="ID_Nombre_Productos" />
+          </Key>
+          <Property Name="ID_Nombre_Productos" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Parametros_Generales">
+          <Key>
+            <PropertyRef Name="NombreParametro" />
+          </Key>
+          <Property Name="NombreParametro" Type="String" Nullable="false" MaxLength="120" Unicode="false" FixedLength="false" />
+          <Property Name="Valor" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Productos">
+          <Key>
+            <PropertyRef Name="ID_Producto" />
+          </Key>
+          <Property Name="ID_Producto" Type="String" Nullable="false" MaxLength="35" Unicode="false" FixedLength="false" />
+          <Property Name="NombreProducto" Type="Int32" Nullable="false" />
+          <Property Name="Clase" Type="Int32" Nullable="false" />
+          <Property Name="Precio_Costo" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Fecha_Ingreso" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Productos_V">
+          <Key>
+            <PropertyRef Name="ID_Producto" />
+          </Key>
+          <Property Name="ID_Producto" Type="String" Nullable="false" MaxLength="35" Unicode="false" FixedLength="false" />
+          <Property Name="NombreProducto" Type="Int32" Nullable="false" />
+          <Property Name="Clase" Type="Int32" Nullable="false" />
+          <Property Name="Precio_Costo" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Fecha_Ingreso" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Tipos_ID_Cliente">
+          <Key>
+            <PropertyRef Name="ID_TipoID" />
+          </Key>
+          <Property Name="ID_TipoID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="190" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Usr_ID" />
+          </Key>
+          <Property Name="Usr_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Login_Name" Type="String" Nullable="false" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="Login_Pass" Type="String" Nullable="false" MaxLength="60" Unicode="false" FixedLength="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="70" Unicode="false" FixedLength="false" />
+          <Property Name="Cedula" Type="String" Nullable="false" MaxLength="22" Unicode="false" FixedLength="false" />
+          <Property Name="Telefono_Movil" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Telefono_Local" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Direccion" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="Cargo" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Ventas">
+          <Key>
+            <PropertyRef Name="ID_Venta" />
+          </Key>
+          <Property Name="ID_Venta" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Factura" Type="Int32" Nullable="false" />
+          <Property Name="Producto" Type="String" MaxLength="35" Unicode="false" FixedLength="false" />
+          <Property Name="Precio_Venta" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <NavigationProperty Name="Facturas" Relationship="IM_DB_Model.FK_Venta_Factura" FromRole="Ventas" ToRole="Facturas" />
+        </EntityType>
+        <Association Name="FK_Fact_Client">
+          <End Role="Clientes" Type="IM_DB_Model.Clientes" Multiplicity="0..1" />
+          <End Role="Facturas" Type="IM_DB_Model.Facturas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="Cedula_RNC" />
+            </Principal>
+            <Dependent Role="Facturas">
+              <PropertyRef Name="Cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Venta_Factura">
+          <End Role="Facturas" Type="IM_DB_Model.Facturas" Multiplicity="1" />
+          <End Role="Ventas" Type="IM_DB_Model.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Facturas">
+              <PropertyRef Name="ID_Factura" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="Factura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IM_DB_ModelStoreContainer" CdmEntityContainer="IM_DB_Entities">
+          <EntitySetMapping Name="Cargos">
+            <EntityTypeMapping TypeName="IM_DB_Model.Cargos">
+              <MappingFragment StoreEntitySet="Cargos">
+                <ScalarProperty Name="ID_Cargo" ColumnName="ID_Cargo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clases_Productos">
+            <EntityTypeMapping TypeName="IM_DB_Model.Clases_Productos">
+              <MappingFragment StoreEntitySet="Clases_Productos">
+                <ScalarProperty Name="ID_CLase" ColumnName="ID_CLase" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="IM_DB_Model.Clientes">
+              <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="Cedula_RNC" ColumnName="Cedula_RNC" />
+                <ScalarProperty Name="TipoID" ColumnName="TipoID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono1" ColumnName="Telefono1" />
+                <ScalarProperty Name="Telefono2" ColumnName="Telefono2" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Facturas">
+            <EntityTypeMapping TypeName="IM_DB_Model.Facturas">
+              <MappingFragment StoreEntitySet="Facturas">
+                <ScalarProperty Name="ID_Factura" ColumnName="ID_Factura" />
+                <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+                <ScalarProperty Name="Cant_Articulos" ColumnName="Cant_Articulos" />
+                <ScalarProperty Name="Monto_Factura" ColumnName="Monto_Factura" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="vendedor" ColumnName="vendedor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nombres_Productos">
+            <EntityTypeMapping TypeName="IM_DB_Model.Nombres_Productos">
+              <MappingFragment StoreEntitySet="Nombres_Productos">
+                <ScalarProperty Name="ID_Nombre_Productos" ColumnName="ID_Nombre_Productos" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parametros_Generales">
+            <EntityTypeMapping TypeName="IM_DB_Model.Parametros_Generales">
+              <MappingFragment StoreEntitySet="Parametros_Generales">
+                <ScalarProperty Name="NombreParametro" ColumnName="NombreParametro" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Productos">
+            <EntityTypeMapping TypeName="IM_DB_Model.Productos">
+              <MappingFragment StoreEntitySet="Productos">
+                <ScalarProperty Name="ID_Producto" ColumnName="ID_Producto" />
+                <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+                <ScalarProperty Name="Clase" ColumnName="Clase" />
+                <ScalarProperty Name="Precio_Costo" ColumnName="Precio_Costo" />
+                <ScalarProperty Name="Fecha_Ingreso" ColumnName="Fecha_Ingreso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Productos_V">
+            <EntityTypeMapping TypeName="IM_DB_Model.Productos_V">
+              <MappingFragment StoreEntitySet="Productos_V">
+                <ScalarProperty Name="ID_Producto" ColumnName="ID_Producto" />
+                <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+                <ScalarProperty Name="Clase" ColumnName="Clase" />
+                <ScalarProperty Name="Precio_Costo" ColumnName="Precio_Costo" />
+                <ScalarProperty Name="Fecha_Ingreso" ColumnName="Fecha_Ingreso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipos_ID_Cliente">
+            <EntityTypeMapping TypeName="IM_DB_Model.Tipos_ID_Cliente">
+              <MappingFragment StoreEntitySet="Tipos_ID_Cliente">
+                <ScalarProperty Name="ID_TipoID" ColumnName="ID_TipoID" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="IM_DB_Model.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Usr_ID" ColumnName="Usr_ID" />
+                <ScalarProperty Name="Login_Name" ColumnName="Login_Name" />
+                <ScalarProperty Name="Login_Pass" ColumnName="Login_Pass" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Telefono_Movil" ColumnName="Telefono_Movil" />
+                <ScalarProperty Name="Telefono_Local" ColumnName="Telefono_Local" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ventas">
+            <EntityTypeMapping TypeName="IM_DB_Model.Ventas">
+              <MappingFragment StoreEntitySet="Ventas">
+                <ScalarProperty Name="ID_Venta" ColumnName="ID_Venta" />
+                <ScalarProperty Name="Factura" ColumnName="Factura" />
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="Precio_Venta" ColumnName="Precio_Venta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

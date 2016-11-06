@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IM_DB_ModelStoreContainer" CdmEntityContainer="IM_DB_Entities">
+    <EntitySetMapping Name="Cargos">
+      <EntityTypeMapping TypeName="IM_DB_Model.Cargos">
+        <MappingFragment StoreEntitySet="Cargos">
+          <ScalarProperty Name="ID_Cargo" ColumnName="ID_Cargo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clases_Productos">
+      <EntityTypeMapping TypeName="IM_DB_Model.Clases_Productos">
+        <MappingFragment StoreEntitySet="Clases_Productos">
+          <ScalarProperty Name="ID_CLase" ColumnName="ID_CLase" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="IM_DB_Model.Clientes">
+        <MappingFragment StoreEntitySet="Clientes">
+          <ScalarProperty Name="Cedula_RNC" ColumnName="Cedula_RNC" />
+          <ScalarProperty Name="TipoID" ColumnName="TipoID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Telefono1" ColumnName="Telefono1" />
+          <ScalarProperty Name="Telefono2" ColumnName="Telefono2" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Facturas">
+      <EntityTypeMapping TypeName="IM_DB_Model.Facturas">
+        <MappingFragment StoreEntitySet="Facturas">
+          <ScalarProperty Name="ID_Factura" ColumnName="ID_Factura" />
+          <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+          <ScalarProperty Name="Cant_Articulos" ColumnName="Cant_Articulos" />
+          <ScalarProperty Name="Monto_Factura" ColumnName="Monto_Factura" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nombres_Productos">
+      <EntityTypeMapping TypeName="IM_DB_Model.Nombres_Productos">
+        <MappingFragment StoreEntitySet="Nombres_Productos">
+          <ScalarProperty Name="ID_Nombre_Productos" ColumnName="ID_Nombre_Productos" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productos">
+      <EntityTypeMapping TypeName="IM_DB_Model.Productos">
+        <MappingFragment StoreEntitySet="Productos">
+          <ScalarProperty Name="ID_Producto" ColumnName="ID_Producto" />
+          <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+          <ScalarProperty Name="Clase" ColumnName="Clase" />
+          <ScalarProperty Name="Precio_Costo" ColumnName="Precio_Costo" />
+          <ScalarProperty Name="Fecha_Ingreso" ColumnName="Fecha_Ingreso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productos_V">
+      <EntityTypeMapping TypeName="IM_DB_Model.Productos_V">
+        <MappingFragment StoreEntitySet="Productos_V">
+          <ScalarProperty Name="ID_Producto" ColumnName="ID_Producto" />
+          <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+          <ScalarProperty Name="Clase" ColumnName="Clase" />
+          <ScalarProperty Name="Precio_Costo" ColumnName="Precio_Costo" />
+          <ScalarProperty Name="Fecha_Ingreso" ColumnName="Fecha_Ingreso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipos_ID_Cliente">
+      <EntityTypeMapping TypeName="IM_DB_Model.Tipos_ID_Cliente">
+        <MappingFragment StoreEntitySet="Tipos_ID_Cliente">
+          <ScalarProperty Name="ID_TipoID" ColumnName="ID_TipoID" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IM_DB_Model.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Usr_ID" ColumnName="Usr_ID" />
+          <ScalarProperty Name="Login_Name" ColumnName="Login_Name" />
+          <ScalarProperty Name="Login_Pass" ColumnName="Login_Pass" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Telefono_Movil" ColumnName="Telefono_Movil" />
+          <ScalarProperty Name="Telefono_Local" ColumnName="Telefono_Local" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ventas">
+      <EntityTypeMapping TypeName="IM_DB_Model.Ventas">
+        <MappingFragment StoreEntitySet="Ventas">
+          <ScalarProperty Name="ID_Venta" ColumnName="ID_Venta" />
+          <ScalarProperty Name="Factura" ColumnName="Factura" />
+          <ScalarProperty Name="Producto" ColumnName="Producto" />
+          <ScalarProperty Name="Precio_Venta" ColumnName="Precio_Venta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
