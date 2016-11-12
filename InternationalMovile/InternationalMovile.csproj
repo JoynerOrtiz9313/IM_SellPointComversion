@@ -173,6 +173,12 @@
     <Compile Include="Procesos\FrmLogIn.Designer.cs">
       <DependentUpon>FrmLogIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Procesos\FrmPantallaSellPoint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procesos\FrmPantallaSellPoint.Designer.cs">
+      <DependentUpon>FrmPantallaSellPoint.cs</DependentUpon>
+    </Compile>
     <Compile Include="Procesos\GarantiaMovil.cs">
       <SubType>Form</SubType>
     </Compile>
