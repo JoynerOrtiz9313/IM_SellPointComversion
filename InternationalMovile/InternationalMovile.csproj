@@ -70,6 +70,9 @@
     <Compile Include="Clases\Facturas.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Clases\GastosPerdidas.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Clases\Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -173,6 +176,18 @@
     <Compile Include="Procesos\FrmLogIn.Designer.cs">
       <DependentUpon>FrmLogIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Procesos\FrmPantallaSellPoint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procesos\FrmPantallaSellPoint.Designer.cs">
+      <DependentUpon>FrmPantallaSellPoint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\FrmReportePerdidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procesos\FrmReportePerdidas.Designer.cs">
+      <DependentUpon>FrmReportePerdidas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Procesos\GarantiaMovil.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Procesos\FrmLogIn.resx">
       <DependentUpon>FrmLogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procesos\FrmReportePerdidas.resx">
+      <DependentUpon>FrmReportePerdidas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Procesos\GarantiaMovil.resx">
       <DependentUpon>GarantiaMovil.cs</DependentUpon>

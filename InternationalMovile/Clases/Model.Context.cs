@@ -29,6 +29,7 @@ namespace InternationalMovile.Clases
         public DbSet<Clases_Productos> Clases_Productos { get; set; }
         public DbSet<Clientes> Clientes { get; set; }
         public DbSet<Facturas> Facturas { get; set; }
+        public DbSet<GastosPerdidas> GastosPerdidas { get; set; }
         public DbSet<Nombres_Productos> Nombres_Productos { get; set; }
         public DbSet<Parametros_Generales> Parametros_Generales { get; set; }
         public DbSet<Productos> Productos { get; set; }

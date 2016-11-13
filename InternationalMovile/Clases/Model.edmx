@@ -10,6 +10,7 @@
           <EntitySet Name="Clases_Productos" EntityType="IM_DB_Model.Store.Clases_Productos" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Clientes" EntityType="IM_DB_Model.Store.Clientes" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Facturas" EntityType="IM_DB_Model.Store.Facturas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="GastosPerdidas" EntityType="IM_DB_Model.Store.GastosPerdidas" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Nombres_Productos" EntityType="IM_DB_Model.Store.Nombres_Productos" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Parametros_Generales" EntityType="IM_DB_Model.Store.Parametros_Generales" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Productos" EntityType="IM_DB_Model.Store.Productos" store:Type="Tables" Schema="dbo" />
@@ -63,6 +64,17 @@
           <Property Name="Monto_Factura" Type="decimal" Nullable="false" Scale="2" />
           <Property Name="Fecha" Type="datetime" Nullable="false" />
           <Property Name="vendedor" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="GastosPerdidas">
+          <Key>
+            <PropertyRef Name="ID_ReporteGastosPerdidas" />
+          </Key>
+          <Property Name="ID_ReporteGastosPerdidas" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Motivo" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Monto" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="FechaReporte" Type="datetime" Nullable="false" />
+          <Property Name="Usuario" Type="varchar" MaxLength="50" />
+          <Property Name="Comentario" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="Nombres_Productos">
           <Key>
@@ -162,6 +174,7 @@
           <EntitySet Name="Clases_Productos" EntityType="IM_DB_Model.Clases_Productos" />
           <EntitySet Name="Clientes" EntityType="IM_DB_Model.Clientes" />
           <EntitySet Name="Facturas" EntityType="IM_DB_Model.Facturas" />
+          <EntitySet Name="GastosPerdidas" EntityType="IM_DB_Model.GastosPerdidas" />
           <EntitySet Name="Nombres_Productos" EntityType="IM_DB_Model.Nombres_Productos" />
           <EntitySet Name="Parametros_Generales" EntityType="IM_DB_Model.Parametros_Generales" />
           <EntitySet Name="Productos" EntityType="IM_DB_Model.Productos" />
@@ -218,6 +231,17 @@
           <Property Name="vendedor" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="Clientes" Relationship="IM_DB_Model.FK_Fact_Client" FromRole="Facturas" ToRole="Clientes" />
           <NavigationProperty Name="Ventas" Relationship="IM_DB_Model.FK_Venta_Factura" FromRole="Facturas" ToRole="Ventas" />
+        </EntityType>
+        <EntityType Name="GastosPerdidas">
+          <Key>
+            <PropertyRef Name="ID_ReporteGastosPerdidas" />
+          </Key>
+          <Property Name="ID_ReporteGastosPerdidas" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Motivo" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="Monto" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="FechaReporte" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Usuario" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Comentario" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
         </EntityType>
         <EntityType Name="Nombres_Productos">
           <Key>
@@ -353,6 +377,18 @@
                 <ScalarProperty Name="Monto_Factura" ColumnName="Monto_Factura" />
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
                 <ScalarProperty Name="vendedor" ColumnName="vendedor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GastosPerdidas">
+            <EntityTypeMapping TypeName="IM_DB_Model.GastosPerdidas">
+              <MappingFragment StoreEntitySet="GastosPerdidas">
+                <ScalarProperty Name="ID_ReporteGastosPerdidas" ColumnName="ID_ReporteGastosPerdidas" />
+                <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="FechaReporte" ColumnName="FechaReporte" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
