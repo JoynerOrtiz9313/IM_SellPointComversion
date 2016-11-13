@@ -5,6 +5,7 @@
     <EntitySet Name="Clases_Productos" EntityType="IM_DB_Model.Clases_Productos" />
     <EntitySet Name="Clientes" EntityType="IM_DB_Model.Clientes" />
     <EntitySet Name="Facturas" EntityType="IM_DB_Model.Facturas" />
+    <EntitySet Name="GastosPerdidas" EntityType="IM_DB_Model.GastosPerdidas" />
     <EntitySet Name="Nombres_Productos" EntityType="IM_DB_Model.Nombres_Productos" />
     <EntitySet Name="Parametros_Generales" EntityType="IM_DB_Model.Parametros_Generales" />
     <EntitySet Name="Productos" EntityType="IM_DB_Model.Productos" />
@@ -61,6 +62,17 @@
     <Property Name="vendedor" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="Clientes" Relationship="IM_DB_Model.FK_Fact_Client" FromRole="Facturas" ToRole="Clientes" />
     <NavigationProperty Name="Ventas" Relationship="IM_DB_Model.FK_Venta_Factura" FromRole="Facturas" ToRole="Ventas" />
+  </EntityType>
+  <EntityType Name="GastosPerdidas">
+    <Key>
+      <PropertyRef Name="ID_ReporteGastosPerdidas" />
+    </Key>
+    <Property Name="ID_ReporteGastosPerdidas" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Motivo" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+    <Property Name="Monto" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="FechaReporte" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Usuario" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Comentario" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
   </EntityType>
   <EntityType Name="Nombres_Productos">
     <Key>

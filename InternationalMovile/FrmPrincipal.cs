@@ -154,6 +154,13 @@ namespace InternationalMovile
             Frm.ShowDialog();
         }
 
+        private void reportarPerdidaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmReportePerdidas Frm = new FrmReportePerdidas();
+            Frm.ShowDialog();
+        }
+
+        
         
         
         

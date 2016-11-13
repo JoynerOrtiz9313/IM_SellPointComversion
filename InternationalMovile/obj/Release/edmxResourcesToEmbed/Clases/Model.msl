@@ -43,6 +43,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="GastosPerdidas">
+      <EntityTypeMapping TypeName="IM_DB_Model.GastosPerdidas">
+        <MappingFragment StoreEntitySet="GastosPerdidas">
+          <ScalarProperty Name="ID_ReporteGastosPerdidas" ColumnName="ID_ReporteGastosPerdidas" />
+          <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="FechaReporte" ColumnName="FechaReporte" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Nombres_Productos">
       <EntityTypeMapping TypeName="IM_DB_Model.Nombres_Productos">
         <MappingFragment StoreEntitySet="Nombres_Productos">

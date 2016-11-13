@@ -43,12 +43,18 @@
             this.filtroAvanzadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entradaInventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.garantiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportarPerdidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirDelSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rEPORTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CmdMantProducto = new System.Windows.Forms.PictureBox();
             this.CmdLlamarFactura = new System.Windows.Forms.PictureBox();
             this.CmdFiltros = new System.Windows.Forms.PictureBox();
             this.CmdGarantia = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.reporteGastosYPeridasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteExistenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteGananciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CmdMantProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CmdLlamarFactura)).BeginInit();
@@ -61,6 +67,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mantenimientosToolStripMenuItem,
             this.procesosToolStripMenuItem,
+            this.rEPORTESToolStripMenuItem,
             this.salirDelSistemaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -130,7 +137,8 @@
             this.facturacionToolStripMenuItem,
             this.filtroAvanzadoToolStripMenuItem,
             this.entradaInventarioToolStripMenuItem,
-            this.garantiaToolStripMenuItem});
+            this.garantiaToolStripMenuItem,
+            this.reportarPerdidaToolStripMenuItem});
             this.procesosToolStripMenuItem.Image = global::InternationalMovile.Properties.Resources.Bot_Facturacion2;
             this.procesosToolStripMenuItem.Name = "procesosToolStripMenuItem";
             this.procesosToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
@@ -163,6 +171,13 @@
             this.garantiaToolStripMenuItem.Text = "Garantia";
             this.garantiaToolStripMenuItem.Click += new System.EventHandler(this.garantiaToolStripMenuItem_Click);
             // 
+            // reportarPerdidaToolStripMenuItem
+            // 
+            this.reportarPerdidaToolStripMenuItem.Name = "reportarPerdidaToolStripMenuItem";
+            this.reportarPerdidaToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.reportarPerdidaToolStripMenuItem.Text = "Reportar Perdida";
+            this.reportarPerdidaToolStripMenuItem.Click += new System.EventHandler(this.reportarPerdidaToolStripMenuItem_Click);
+            // 
             // salirDelSistemaToolStripMenuItem
             // 
             this.salirDelSistemaToolStripMenuItem.Image = global::InternationalMovile.Properties.Resources.BOT_OFF;
@@ -170,6 +185,17 @@
             this.salirDelSistemaToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.salirDelSistemaToolStripMenuItem.Text = "Log Off";
             this.salirDelSistemaToolStripMenuItem.Click += new System.EventHandler(this.salirDelSistemaToolStripMenuItem_Click);
+            // 
+            // rEPORTESToolStripMenuItem
+            // 
+            this.rEPORTESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reporteGastosYPeridasToolStripMenuItem,
+            this.reporteExistenciaToolStripMenuItem,
+            this.reporteVentasToolStripMenuItem,
+            this.reporteGananciasToolStripMenuItem});
+            this.rEPORTESToolStripMenuItem.Name = "rEPORTESToolStripMenuItem";
+            this.rEPORTESToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.rEPORTESToolStripMenuItem.Text = "Reportes";
             // 
             // CmdMantProducto
             // 
@@ -218,6 +244,30 @@
             this.CmdGarantia.TabIndex = 1;
             this.CmdGarantia.TabStop = false;
             this.CmdGarantia.Click += new System.EventHandler(this.CmdGarantia_Click);
+            // 
+            // reporteGastosYPeridasToolStripMenuItem
+            // 
+            this.reporteGastosYPeridasToolStripMenuItem.Name = "reporteGastosYPeridasToolStripMenuItem";
+            this.reporteGastosYPeridasToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.reporteGastosYPeridasToolStripMenuItem.Text = "Reporte Gastos y peridas";
+            // 
+            // reporteExistenciaToolStripMenuItem
+            // 
+            this.reporteExistenciaToolStripMenuItem.Name = "reporteExistenciaToolStripMenuItem";
+            this.reporteExistenciaToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.reporteExistenciaToolStripMenuItem.Text = "Reporte existencia";
+            // 
+            // reporteVentasToolStripMenuItem
+            // 
+            this.reporteVentasToolStripMenuItem.Name = "reporteVentasToolStripMenuItem";
+            this.reporteVentasToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.reporteVentasToolStripMenuItem.Text = "Reporte ventas";
+            // 
+            // reporteGananciasToolStripMenuItem
+            // 
+            this.reporteGananciasToolStripMenuItem.Name = "reporteGananciasToolStripMenuItem";
+            this.reporteGananciasToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.reporteGananciasToolStripMenuItem.Text = "Reporte Ganancias";
             // 
             // FrmPrincipal
             // 
@@ -274,6 +324,12 @@
         private System.Windows.Forms.PictureBox CmdFiltros;
         private System.Windows.Forms.PictureBox CmdGarantia;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolStripMenuItem reportarPerdidaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rEPORTESToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteGastosYPeridasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteExistenciaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteVentasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteGananciasToolStripMenuItem;
     }
 }
 

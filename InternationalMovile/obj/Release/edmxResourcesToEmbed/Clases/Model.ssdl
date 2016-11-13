@@ -5,6 +5,7 @@
     <EntitySet Name="Clases_Productos" EntityType="IM_DB_Model.Store.Clases_Productos" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Clientes" EntityType="IM_DB_Model.Store.Clientes" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Facturas" EntityType="IM_DB_Model.Store.Facturas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GastosPerdidas" EntityType="IM_DB_Model.Store.GastosPerdidas" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Nombres_Productos" EntityType="IM_DB_Model.Store.Nombres_Productos" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Parametros_Generales" EntityType="IM_DB_Model.Store.Parametros_Generales" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Productos" EntityType="IM_DB_Model.Store.Productos" store:Type="Tables" Schema="dbo" />
@@ -58,6 +59,17 @@
     <Property Name="Monto_Factura" Type="decimal" Nullable="false" Scale="2" />
     <Property Name="Fecha" Type="datetime" Nullable="false" />
     <Property Name="vendedor" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="GastosPerdidas">
+    <Key>
+      <PropertyRef Name="ID_ReporteGastosPerdidas" />
+    </Key>
+    <Property Name="ID_ReporteGastosPerdidas" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Motivo" Type="varchar" Nullable="false" MaxLength="250" />
+    <Property Name="Monto" Type="decimal" Nullable="false" Scale="2" />
+    <Property Name="FechaReporte" Type="datetime" Nullable="false" />
+    <Property Name="Usuario" Type="varchar" MaxLength="50" />
+    <Property Name="Comentario" Type="varchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="Nombres_Productos">
     <Key>
