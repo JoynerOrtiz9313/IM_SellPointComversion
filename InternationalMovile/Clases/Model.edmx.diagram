@@ -18,6 +18,7 @@
         <EntityTypeShape EntityType="IM_DB_Model.Ventas" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
         <AssociationConnector Association="IM_DB_Model.FK_Fact_Client" ManuallyRouted="false" />
         <AssociationConnector Association="IM_DB_Model.FK_Venta_Factura" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="IM_DB_Model.GastosPerdidas" Width="1.5" PointX="3.6080463415049229" PointY="19.699872830742912" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
