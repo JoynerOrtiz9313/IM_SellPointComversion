@@ -20,18 +20,28 @@ namespace InternationalMovile.Procesos
         }
 
         Clases.IM_DB_Entities DB = new Clases.IM_DB_Entities();
-        Clases.Productos_V Movil_Cliente;
+        Clases.VentaInmediata venta;
         Clases.Productos Movil_Nuevo;
-        Clases.Ventas venta;
+        //  Clases.Ventas venta;
         Clases.Clientes cliente;
         Clases.Facturas fact;
         Clases.Clases_Productos cp;
         Clases.Nombres_Productos NP;
         Clases.Users Vendedor;
+        string NCF = string.Empty;
 
         private void GarantiaMovil_Load(object sender, EventArgs e)
         {
+            Cargar_CmbProductos();
+        }
 
+        void Cargar_CmbProductos()
+        {
+
+            DB = new Clases.IM_DB_Entities();
+            CmbNuevoNombreMovil.DataSource = DB.Nombres_Productos.ToList();
+            CmbNuevoNombreMovil.DisplayMember = "Descripcion";
+            CmbNuevoNombreMovil.ValueMember = "ID_Nombre_Productos";
         }
 
         private void LblClase_Click(object sender, EventArgs e)
@@ -76,50 +86,53 @@ namespace InternationalMovile.Procesos
             if (Buscando)
                 return;
 
-            if (TxtCodigoTelCliente.Text.Length >= 9)
+            Buscando = true;
+            Program.wait(2);
+            try
             {
-                Buscando = true;
-                Program.wait(2);
-                try
+                if (TxtCodigoTelCliente.Text.Trim() == "")
                 {
-                    Movil_Cliente = new Clases.Productos_V();
-                    Movil_Cliente = DB.Productos_V.Where(p => p.ID_Producto == TxtCodigoTelCliente.Text).First();
-
-                    venta = new Clases.Ventas();
-                    cliente = new Clases.Clientes();
-                    fact = new Clases.Facturas();
-                    cp = new Clases.Clases_Productos();
-                    NP = new Clases.Nombres_Productos();
-
-
-                    NP = DB.Nombres_Productos.Where(np => np.ID_Nombre_Productos == Movil_Cliente.NombreProducto).FirstOrDefault();
-                    cp = DB.Clases_Productos.Where(clase => clase.ID_CLase == Movil_Cliente.Clase).FirstOrDefault();
-                    venta = DB.Ventas.Where(v => v.Producto == Movil_Cliente.ID_Producto).FirstOrDefault();
-                    fact = DB.Facturas.Where(f => f.ID_Factura == venta.Factura).FirstOrDefault();
-                    cliente = DB.Clientes.Where(c => c.Cedula_RNC == fact.Cliente).FirstOrDefault();
-                    int IDVendedor = int.Parse(fact.vendedor);
-                    Vendedor = DB.Users.Where(u => u.Usr_ID == IDVendedor).FirstOrDefault();
-
-                    LblCliente.Text = cliente.Nombre;
-                    LblFecha.Text = fact.Fecha.ToString();
-                    LblClase.Text = cp.Descripcion;
-                    LblFechaVencimiento.Text = fact.Fecha.AddDays(15).ToString();
-                    LblNombreProd.Text = NP.Descripcion;
-                    LblNumeroFactura.Text = fact.ID_Factura.ToString();
-                    LblVendedor.Text = Vendedor.Nombre;
+                    button1_Click(sender, e);
                     Buscando = false;
-
-                }
-                catch (Exception)
-                {
-                    MensajeInfo("Producto no encontrado en ventas");
-                    TxtCodigoTelCliente.Text = "";
-                    TxtCodigoTelCliente.Focus();
                     return;
                 }
 
+                venta = new Clases.VentaInmediata();
+                venta = DB.VentaInmediata.Where(p => p.IMEI == TxtCodigoTelCliente.Text).First();
+
+                //venta = new Clases.Ventas();
+                cliente = new Clases.Clientes();
+                fact = new Clases.Facturas();
+                cp = new Clases.Clases_Productos();
+                NP = new Clases.Nombres_Productos();
+
+
+                NP = DB.Nombres_Productos.Where(np => np.ID_Nombre_Productos == venta.id_Nombre_Producto).FirstOrDefault();
+                //cp = DB.Clases_Productos.Where(clase => clase.ID_CLase == Movil_Cliente.Clase).FirstOrDefault();
+                //venta = DB.Ventas.Where(v => v.Producto == Movil_Cliente.ID_Producto).FirstOrDefault();
+                fact = DB.Facturas.Where(f => f.ID_Factura == venta.factura).FirstOrDefault();
+                cliente = DB.Clientes.Where(c => c.RNC == fact.Cliente).FirstOrDefault();
+                string IDVendedor = fact.vendedor;
+
+                LblCliente.Text = cliente.Nombre;
+                LblFecha.Text = fact.Fecha.ToString();
+                LblClase.Text = cp.Descripcion;
+                LblFechaVencimiento.Text = fact.Fecha.AddDays(15).ToString();
+                LblNombreProd.Text = NP.Descripcion;
+                LblNumeroFactura.Text = fact.ID_Factura.ToString();
+                LblVendedor.Text = IDVendedor;
+                Buscando = false;
 
             }
+            catch (Exception es)
+            {
+                MensajeInfo(es.Message);
+                TxtCodigoTelCliente.Text = "";
+                TxtCodigoTelCliente.Focus();
+                Buscando = false;
+                return;
+            }
+
         }
 
         void MensajeError(string Mensaje)
@@ -140,6 +153,8 @@ namespace InternationalMovile.Procesos
 
         private void TxtCodigoNuevoTelefono_TextChanged(object sender, EventArgs e)
         {
+            #region Old
+            /*
             if (Buscando)
                 return;
 
@@ -171,21 +186,50 @@ namespace InternationalMovile.Procesos
                     TxtCodigoNuevoTelefono.Focus();
                     return;
                 }
-            }
+            }*/
+            #endregion
         }
 
         private void CmdIntercambiar_Click(object sender, EventArgs e)
         {
-            DB = new Clases.IM_DB_Entities();
+            bool ventaEncontrada = venta.Id_Venta != null;
+
+            if (!ventaEncontrada)
+            {
+                Program.MensageInfo("No ha elegido ningun equipo");
+                return;
+            }
+
+            //DB = new Clases.IM_DB_Entities();
+
+
             try
             {
-                var _ModVenta = DB.Ventas.Where(_v => _v.ID_Venta == venta.ID_Venta).First();
-                _ModVenta.Producto = Movil_Nuevo.ID_Producto;
-                var _ProdToDelete = DB.Productos.Where(p => p.ID_Producto == Movil_Nuevo.ID_Producto).First();
+
+                if (venta.id_Nombre_Producto != (int)CmbNuevoNombreMovil.SelectedValue)
+                {
+                    cambioIMEI();
+                    cambioNombreMovil();
+                    anularfactura();
+                    addNotacredito();
+                    Guardar_NCF();
+                    cambioPorOtroMovil();                    
+                }
+                else
+                {
+                    cambioIMEI();
+                }
+
+
+                MensajeInfo("Intercambiado con exito");
+                //-------------VENTA ALTERADA------------------------
+
+                #region old
+                /* var _ProdToDelete = DB.Productos.Where(p => p.ID_Producto == Movil_Nuevo.ID_Producto).First();
                 DB.Productos.Remove(_ProdToDelete);
                 var _ProdToDelete2 = DB.Productos_V.Where(p => p.ID_Producto == Movil_Cliente.ID_Producto).First();
                 DB.Productos_V.Remove(_ProdToDelete2);
-
+                
                 DB.Productos_V.Add(
                     new Clases.Productos_V
                     {
@@ -196,21 +240,147 @@ namespace InternationalMovile.Procesos
                         Precio_Costo = Movil_Cliente.Precio_Costo
                     }
                     );
+                */
+                #endregion
 
-                DB.SaveChanges();
-                MensajeInfo("Intercambiado con exito");
-                //-------------VENTA ALTERADA------------------------
-                int _factNumb = int.Parse(LblNumeroFactura.Text);
-                GuardarArchivo("MOD_Factura cliente_" + LblCliente.Text + "_" + DateTime.Now.ToString("ddMMyyyy_hhmm"),
-                    "<span style='font-weight: bold'> "+ Construir__Factura(DB.Ventas.Where(_v => _v.Facturas.ID_Factura == _factNumb).ToList(), LblCliente.Text) + "</span>"
+
+                /*
+                 * GuardarArchivo("MOD_Factura cliente_" + LblCliente.Text + "_" + DateTime.Now.ToString("ddMMyyyy_hhmm"),
+                    "<span style='font-weight: bold'> " + Construir__Factura(DB.Ventas.Where(_v => _v.Facturas.ID_Factura == _factNumb).ToList(), LblCliente.Text) + "</span>"
                     );
+                 */
+                button1_Click(sender, e);
+
             }
             catch (Exception es)
             {
 
                 Program.MensajeError(es.Message);
-
             }
+        }
+
+        void cambioPorOtroMovil()
+        {
+            int id_nueva_fact = getSiguiente_Factura();
+            var Nueva_Fact = facturaParaSustituir(fact);
+
+            Nueva_Fact.Cant_Articulos = DB.VentaInmediata.Where(x => x.factura == fact.ID_Factura).Count(); //Se le asigna la cantidad nueva de artuculos en caso que esta cambie
+            Nueva_Fact.ID_Factura = id_nueva_fact; // SE LE ASIGNA NUMERO DE FACTURA A LA NUEVA
+
+            DB.Facturas.Add(Nueva_Fact);
+
+            DB.VentaInmediata.Where(x => x.factura == fact.ID_Factura).ToList().ForEach(
+                item => item.factura = id_nueva_fact);// todos los articulos de la antigua factura deben heredar el id de factura nuevo
+
+            DB.SaveChanges();
+
+        }
+
+        void addNotacredito() {
+            var NC = new Clases.Nota_Credito();
+            NC.Anio_Mes = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString().PadLeft(2, '0');
+            NC.Dia = DateTime.Now.Day.ToString().PadLeft(2, '0');
+            NC.Id_Cliente = fact.Cliente;
+            NC.Numero_NCF = getSiguienteNCF_NotaCredito();
+            NC.NCF_Modificado = fact.NCF;
+            NC.Id_Tipo_NCF = 1;
+            NC.Monto = fact.Monto;
+            NC.Itebis = fact.Monto * (decimal)0.18;
+            NC.Tipo_Cliente = cliente.TipoID;
+
+            DB.Nota_Credito.Add(NC);
+
+            DB.SaveChanges();
+        }
+
+        void cambioIMEI()
+        {
+            venta.IMEI = TxtCodigoNuevoTelefono.Text;
+            DB.SaveChanges();
+        }
+
+        void anularfactura()
+        {
+            fact.Anulada = true;
+            DB.SaveChanges();
+        }
+
+        void cambioNombreMovil()
+        {
+            venta.id_Nombre_Producto = (int)CmbNuevoNombreMovil.SelectedValue;
+            DB.SaveChanges();
+        }
+
+        Clases.Facturas facturaParaSustituir(Clases.Facturas referencia)
+        {
+
+            var _db = new Clases.IM_DB_Entities();
+            var prefijo = _db.Parametros_Generales.Where(x => x.NombreParametro.ToLower().Contains(referencia.TipoNCF.ToLower())).First().Valor;
+            var fact = new Clases.Facturas()
+            {
+                Anulada = false,
+                Cant_Articulos = referencia.Cant_Articulos,
+                Cliente = referencia.Cliente,
+                Fecha = DateTime.Now,
+                ID_Factura = getSiguiente_Factura(),
+                Monto = referencia.Monto,
+                Monto_Factura = referencia.Monto_Factura,
+                NCF = Refresh_NCF(prefijo),
+                vendedor = referencia.vendedor,
+                TipoPago = referencia.TipoPago,
+                TipoNCF = referencia.TipoNCF,
+                 ReferenciaDePago = ""
+            };
+
+            return fact;
+
+        }
+
+
+        string Refresh_NCF(string refe)
+        {
+            DB = new Clases.IM_DB_Entities();
+            var NCF_Count = DB.NCFs.Where(x => x.Numero_NCF.Contains(refe)).Count();
+            var valor = refe + (NCF_Count + 1).ToString().PadLeft(9, '0');
+
+            NCF = valor;
+
+            return valor;
+        }
+
+        void Guardar_NCF() {
+
+            if (NCF != string.Empty)
+            {
+                Clases.NCFs ncf = new Clases.NCFs();
+                ncf = DB.NCFs.Where(x => x.Numero_NCF == fact.NCF).First();
+                ncf.Numero_NCF = NCF;
+                DB.NCFs.Add(ncf);
+
+                DB.SaveChanges();
+                NCF = string.Empty;
+            }
+        }
+
+        private string getSiguienteNCF_NotaCredito()
+        {
+
+            DB = new Clases.IM_DB_Entities();
+            string prefijo = DB.Parametros_Generales.Where(x => x.NombreParametro.ToLower().Contains("nota de credito")).First().Valor;
+            int sig_Numero = DB.Nota_Credito.Count() + 1;
+
+            return prefijo + sig_Numero.ToString().PadLeft(9, '0');
+
+        }
+
+        private int getSiguiente_Factura()
+        {
+
+            DB = new Clases.IM_DB_Entities();
+            int sig_Numero = DB.Facturas.Count() + 1;
+
+            return sig_Numero;
+
         }
 
         string Construir__Factura(List<Clases.Ventas> Ventas, string Cliente)
@@ -340,13 +510,23 @@ namespace InternationalMovile.Procesos
                 LblFecha.Text = "-";
                 LblNombreProd.Text = "-";
                 LblNuevaClaseMovil.Text = "-";
-                LblNuevoNombreMovil.Text = "-";
+                //LblNuevoNombreMovil.Text = "-";
                 LblNumeroFactura.Text = "-";
                 LblVendedor.Text = "-";
-
+                NCF = string.Empty;
                 TxtCodigoNuevoTelefono.Text = "";
                 TxtCodigoTelCliente.Text = "";
+
+                venta = new Clases.VentaInmediata();
+                cliente = new Clases.Clientes();
+                fact = new Clases.Facturas();
+                cp = new Clases.Clases_Productos();
+                NP = new Clases.Nombres_Productos();
+                DB = new Clases.IM_DB_Entities();
+
                 TxtCodigoTelCliente.Focus();
+
+
             }
             catch (Exception)
             {

@@ -132,7 +132,7 @@ namespace InternationalMovile
 
         private void CmdLlamarFactura_Click(object sender, EventArgs e)
         {
-            FrmFacturacion Frm = new FrmFacturacion();
+            Procesos.FrmFacturacionIM Frm = new Procesos.FrmFacturacionIM();
             Frm.ShowDialog();
         }
 
@@ -144,7 +144,8 @@ namespace InternationalMovile
 
         private void CmdMantProducto_Click(object sender, EventArgs e)
         {
-            FrmInventario Frm = new FrmInventario();
+            Mantenimientos.FrmNombreProds Frm = new FrmNombreProds();
+            //Frm.MdiParent = this;
             Frm.ShowDialog();
         }
 
@@ -160,9 +161,22 @@ namespace InternationalMovile
             Frm.ShowDialog();
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Mantenimientos.FrmClientes Frm= new FrmClientes();
+            Frm.ShowDialog();
+        }
+
+        private void companiasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Mantenimientos.Companias Frm = new Companias();
+            Frm.ShowDialog();
+        }
+
         
         
         
         
     }
 }
+

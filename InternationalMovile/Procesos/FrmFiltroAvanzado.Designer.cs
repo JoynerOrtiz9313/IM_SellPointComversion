@@ -57,7 +57,13 @@
             this.RdVendido = new System.Windows.Forms.RadioButton();
             this.RdActivo = new System.Windows.Forms.RadioButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.BAnular = new System.Windows.Forms.Button();
+            this.Bmodificar = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.TxtNcf = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.LblCliente = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.LblMontoFact = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -369,6 +375,10 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.BAnular);
+            this.tabPage2.Controls.Add(this.Bmodificar);
+            this.tabPage2.Controls.Add(this.label10);
+            this.tabPage2.Controls.Add(this.TxtNcf);
             this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Controls.Add(this.GridVentasPorFactura);
             this.tabPage2.Controls.Add(this.CmdBuscarFactura);
@@ -382,58 +392,119 @@
             this.tabPage2.Text = "Facturas";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // BAnular
+            // 
+            this.BAnular.Location = new System.Drawing.Point(696, 62);
+            this.BAnular.Name = "BAnular";
+            this.BAnular.Size = new System.Drawing.Size(75, 23);
+            this.BAnular.TabIndex = 11;
+            this.BAnular.Text = "Anular";
+            this.BAnular.UseVisualStyleBackColor = true;
+            this.BAnular.Click += new System.EventHandler(this.BAnular_Click);
+            // 
+            // Bmodificar
+            // 
+            this.Bmodificar.Location = new System.Drawing.Point(696, 22);
+            this.Bmodificar.Name = "Bmodificar";
+            this.Bmodificar.Size = new System.Drawing.Size(75, 23);
+            this.Bmodificar.TabIndex = 10;
+            this.Bmodificar.Text = "Modificar";
+            this.Bmodificar.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(8, 46);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(48, 13);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "No. NCF";
+            // 
+            // TxtNcf
+            // 
+            this.TxtNcf.Location = new System.Drawing.Point(8, 62);
+            this.TxtNcf.Name = "TxtNcf";
+            this.TxtNcf.Size = new System.Drawing.Size(176, 20);
+            this.TxtNcf.TabIndex = 8;
+            // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.LblCliente);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.LblMontoFact);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.LblVendedor);
             this.groupBox3.Location = new System.Drawing.Point(307, 6);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(358, 69);
+            this.groupBox3.Size = new System.Drawing.Size(358, 115);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Informacion";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(7, 19);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(58, 20);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "Cliente";
+            // 
+            // LblCliente
+            // 
+            this.LblCliente.AutoSize = true;
+            this.LblCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCliente.Location = new System.Drawing.Point(71, 19);
+            this.LblCliente.Name = "LblCliente";
+            this.LblCliente.Size = new System.Drawing.Size(14, 20);
+            this.LblCliente.TabIndex = 8;
+            this.LblCliente.Text = "-";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(6, 16);
+            this.label8.Location = new System.Drawing.Point(7, 40);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(104, 20);
             this.label8.TabIndex = 4;
             this.label8.Text = "Atendida por:";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // LblMontoFact
             // 
             this.LblMontoFact.AutoSize = true;
             this.LblMontoFact.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblMontoFact.Location = new System.Drawing.Point(125, 36);
+            this.LblMontoFact.Location = new System.Drawing.Point(126, 60);
             this.LblMontoFact.Name = "LblMontoFact";
             this.LblMontoFact.Size = new System.Drawing.Size(14, 20);
             this.LblMontoFact.TabIndex = 6;
             this.LblMontoFact.Text = "-";
+            this.LblMontoFact.Click += new System.EventHandler(this.LblMontoFact_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(6, 38);
+            this.label9.Location = new System.Drawing.Point(7, 62);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(113, 20);
             this.label9.TabIndex = 4;
             this.label9.Text = "Monto Factura";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // LblVendedor
             // 
             this.LblVendedor.AutoSize = true;
             this.LblVendedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblVendedor.Location = new System.Drawing.Point(116, 16);
+            this.LblVendedor.Location = new System.Drawing.Point(117, 40);
             this.LblVendedor.Name = "LblVendedor";
             this.LblVendedor.Size = new System.Drawing.Size(14, 20);
             this.LblVendedor.TabIndex = 5;
             this.LblVendedor.Text = "-";
+            this.LblVendedor.Click += new System.EventHandler(this.LblVendedor_Click);
             // 
             // GridVentasPorFactura
             // 
@@ -441,9 +512,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.GridVentasPorFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridVentasPorFactura.Location = new System.Drawing.Point(6, 81);
+            this.GridVentasPorFactura.Location = new System.Drawing.Point(6, 127);
             this.GridVentasPorFactura.Name = "GridVentasPorFactura";
-            this.GridVentasPorFactura.Size = new System.Drawing.Size(781, 229);
+            this.GridVentasPorFactura.Size = new System.Drawing.Size(781, 170);
             this.GridVentasPorFactura.TabIndex = 3;
             // 
             // CmdBuscarFactura
@@ -451,7 +522,7 @@
             this.CmdBuscarFactura.Image = global::InternationalMovile.Properties.Resources.search_high;
             this.CmdBuscarFactura.Location = new System.Drawing.Point(188, 25);
             this.CmdBuscarFactura.Name = "CmdBuscarFactura";
-            this.CmdBuscarFactura.Size = new System.Drawing.Size(67, 50);
+            this.CmdBuscarFactura.Size = new System.Drawing.Size(77, 57);
             this.CmdBuscarFactura.TabIndex = 2;
             this.CmdBuscarFactura.UseVisualStyleBackColor = true;
             this.CmdBuscarFactura.Click += new System.EventHandler(this.CmdBuscarFactura_Click);
@@ -459,7 +530,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 39);
+            this.label4.Location = new System.Drawing.Point(6, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 13);
             this.label4.TabIndex = 1;
@@ -467,7 +538,7 @@
             // 
             // TxtFactura_Buscar
             // 
-            this.TxtFactura_Buscar.Location = new System.Drawing.Point(6, 55);
+            this.TxtFactura_Buscar.Location = new System.Drawing.Point(6, 25);
             this.TxtFactura_Buscar.Name = "TxtFactura_Buscar";
             this.TxtFactura_Buscar.Size = new System.Drawing.Size(176, 20);
             this.TxtFactura_Buscar.TabIndex = 0;
@@ -543,5 +614,11 @@
         private System.Windows.Forms.Label LblMontoFact;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label LblVendedor;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox TxtNcf;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label LblCliente;
+        private System.Windows.Forms.Button BAnular;
+        private System.Windows.Forms.Button Bmodificar;
     }
 }

@@ -14,6 +14,7 @@ namespace InternationalMovile.Procesos
     {
 
         Clases.IM_DB_Entities DB;
+        List<articuloVendido> Vendidos = new List<articuloVendido>();
 
         public FrmFiltroAvanzado()
         {
@@ -159,6 +160,27 @@ namespace InternationalMovile.Procesos
             LlenarCombos();
         }
 
+        List<articuloVendido> llenar_List_Prods_Vendidos()
+        {
+            var IDF = int.Parse(TxtFactura_Buscar.Text.ToString());
+            var lst = DB.VentaInmediata.Where(v => v.factura == IDF).ToList();
+            Vendidos = new List<articuloVendido>();
+
+            foreach (var item in lst)
+            {
+                DB = new Clases.IM_DB_Entities();
+                articuloVendido a = new articuloVendido();
+                a.IMEI = item.IMEI;
+                a.Precio = (decimal)item.precio;
+                a.Producto = DB.Nombres_Productos.Where(x => x.ID_Nombre_Productos == item.id_Nombre_Producto).First().Descripcion;
+
+                Vendidos.Add(a);
+            }
+
+            return Vendidos;
+
+        }
+
         private void CmdBuscarFactura_Click(object sender, EventArgs e)
         {
             try
@@ -166,19 +188,16 @@ namespace InternationalMovile.Procesos
                 DB = new Clases.IM_DB_Entities();
                 var IDF = int.Parse(TxtFactura_Buscar.Text.ToString());
                 var factura = DB.Facturas.Where(f => f.ID_Factura == IDF).First();
-                int idVendedor = int.Parse(factura.vendedor);
-                var Usuario = DB.Users.Where(u=>u.Usr_ID == idVendedor).First();
+                string NombreUsuario = factura.vendedor;
+                //var Usuario = DB.Users.Where(u=>u.Usr_ID == idVendedor).First();
 
-                GridVentasPorFactura.DataSource = DB.Ventas.Where(v => v.Factura == IDF).ToList();
-                GridVentasPorFactura.Columns[0].Visible = false;
-                GridVentasPorFactura.Columns[1].Visible = false;
-                GridVentasPorFactura.Columns[4].Visible = false;
+                GridVentasPorFactura.DataSource = llenar_List_Prods_Vendidos();
                 GridVentasPorFactura.ReadOnly = true;
 
-                LblMontoFact.Text = factura.Monto_Factura.ToString("0.00") + " de " + 
+                LblMontoFact.Text = factura.Monto_Factura.ToString("C") + " de " +
                 factura.Cant_Articulos.ToString() + " articulos";
 
-                LblVendedor.Text = Usuario.Nombre;
+                LblVendedor.Text = NombreUsuario;
 
             }
             catch (Exception es)
@@ -186,6 +205,16 @@ namespace InternationalMovile.Procesos
                 Program.MensajeError(es.Message);
             }
         }
+
+        protected class articuloVendido
+        {
+
+            public string Producto { get; set; }
+            public string IMEI { get; set; }
+            public decimal Precio { get; set; }
+
+        }
+
 
         // List<object> BuscarVentas(string ID_Fact) {
 
@@ -235,6 +264,54 @@ namespace InternationalMovile.Procesos
             }
         }
 
-        
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LblMontoFact_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LblVendedor_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BAnular_Click(object sender, EventArgs e)
+        {
+            anularFactura();
+        }
+
+        bool anularFactura()
+        {
+            DB = new Clases.IM_DB_Entities();
+            int IDFact = int.Parse(TxtFactura_Buscar.Text);
+            var fact = DB.Facturas.Where(x => x.ID_Factura == IDFact).First();
+
+            fact.Anulada = true;
+            try
+            {
+                DB.SaveChanges();
+                Program.MensageInfo("Anulada!");
+            }
+            catch (Exception es)
+            {
+                Program.MensajeError(es.InnerException.ToString());
+                return false;
+
+            }
+            return true;
+        }
+
+
+
+
     }
 }

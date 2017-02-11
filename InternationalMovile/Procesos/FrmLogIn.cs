@@ -13,7 +13,7 @@ namespace InternationalMovile.Procesos
     public partial class FrmLogIn : Form
     {
 
-        Clases.IM_DB_Entities DB;
+        Clases.IM_DB_Entities DB = new Clases.IM_DB_Entities();
 
         public FrmLogIn()
         {

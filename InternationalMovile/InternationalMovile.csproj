@@ -35,8 +35,9 @@
     <ApplicationIcon>Bot-Facturacion.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Word, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -88,7 +89,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Clases\NCFs.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Clases\Nombres_Productos.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\Nota_Credito.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Clases\Parametros_Generales.cs">
@@ -103,10 +110,16 @@
     <Compile Include="Clases\Tipos_ID_Cliente.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Clases\Tipo_Pago.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Clases\Users.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Clases\Venta.cs" />
+    <Compile Include="Clases\VentaInmediata.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Clases\Ventas.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -115,6 +128,12 @@
     </Compile>
     <Compile Include="FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimientos\Companias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\Companias.Designer.cs">
+      <DependentUpon>Companias.cs</DependentUpon>
     </Compile>
     <Compile Include="Mantenimientos\FrmClasesProd.cs">
       <SubType>Form</SubType>
@@ -134,6 +153,12 @@
     <Compile Include="Mantenimientos\FrmContrasenaMaestra.Designer.cs">
       <DependentUpon>FrmContrasenaMaestra.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimientos\FrmCXP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\FrmCXP.Designer.cs">
+      <DependentUpon>FrmCXP.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mantenimientos\FrmInventario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,17 +177,35 @@
     <Compile Include="Mantenimientos\FrmNombreProds.Designer.cs">
       <DependentUpon>FrmNombreProds.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mantenimientos\FrmTipoPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenimientos\FrmTipoPago.Designer.cs">
+      <DependentUpon>FrmTipoPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mantenimientos\FrmTiposID.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Mantenimientos\FrmTiposID.Designer.cs">
       <DependentUpon>FrmTiposID.cs</DependentUpon>
     </Compile>
+    <Compile Include="Procesos\FormadePago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procesos\FormadePago.Designer.cs">
+      <DependentUpon>FormadePago.cs</DependentUpon>
+    </Compile>
     <Compile Include="Procesos\FrmFacturacion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Procesos\FrmFacturacion.Designer.cs">
       <DependentUpon>FrmFacturacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Procesos\FrmFactutacionIM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Procesos\FrmFactutacionIM.Designer.cs">
+      <DependentUpon>FrmFactutacionIM.cs</DependentUpon>
     </Compile>
     <Compile Include="Procesos\FrmFiltroAvanzado.cs">
       <SubType>Form</SubType>
@@ -199,6 +242,9 @@
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\Companias.resx">
+      <DependentUpon>Companias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\FrmClasesProd.resx">
       <DependentUpon>FrmClasesProd.cs</DependentUpon>
     </EmbeddedResource>
@@ -207,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\FrmContrasenaMaestra.resx">
       <DependentUpon>FrmContrasenaMaestra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\FrmCXP.resx">
+      <DependentUpon>FrmCXP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\FrmInventario.resx">
       <DependentUpon>FrmInventario.cs</DependentUpon>
@@ -217,11 +266,20 @@
     <EmbeddedResource Include="Mantenimientos\FrmNombreProds.resx">
       <DependentUpon>FrmNombreProds.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mantenimientos\FrmTipoPago.resx">
+      <DependentUpon>FrmTipoPago.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mantenimientos\FrmTiposID.resx">
       <DependentUpon>FrmTiposID.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Procesos\FormadePago.resx">
+      <DependentUpon>FormadePago.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Procesos\FrmFacturacion.resx">
       <DependentUpon>FrmFacturacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Procesos\FrmFactutacionIM.resx">
+      <DependentUpon>FrmFactutacionIM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Procesos\FrmFiltroAvanzado.resx">
       <DependentUpon>FrmFiltroAvanzado.cs</DependentUpon>
@@ -249,18 +307,8 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Clases\Model.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model.edmx</DependentUpon>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
-    </None>
     <None Include="Clases\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
-    </None>
-    <None Include="Clases\Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model.edmx</DependentUpon>
-      <LastGenOutput>Model.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -304,6 +352,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Bot-Facturacion.ico" />
+    <Content Include="Clases\Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Clases\Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\descarga.jpg" />
     <None Include="Resources\Icons\Bot-garantia.ico" />
     <None Include="Resources\bot-add.jpg" />
     <None Include="Resources\Icons\BOT-OFF.ico" />

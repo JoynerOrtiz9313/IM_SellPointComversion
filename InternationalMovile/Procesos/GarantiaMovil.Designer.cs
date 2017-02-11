@@ -54,8 +54,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.LblNuevaClaseMovil = new System.Windows.Forms.Label();
-            this.LblNuevoNombreMovil = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.CmbNuevoNombreMovil = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -239,16 +239,16 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.CmbNuevoNombreMovil);
             this.groupBox2.Controls.Add(this.CmdIntercambiar);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.TxtCodigoNuevoTelefono);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.LblNuevaClaseMovil);
-            this.groupBox2.Controls.Add(this.LblNuevoNombreMovil);
             this.groupBox2.Location = new System.Drawing.Point(347, 62);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(297, 137);
+            this.groupBox2.Size = new System.Drawing.Size(297, 179);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos del movil";
@@ -256,11 +256,12 @@
             // 
             // CmdIntercambiar
             // 
+            this.CmdIntercambiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.CmdIntercambiar.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.CmdIntercambiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmdIntercambiar.Image = global::InternationalMovile.Properties.Resources.Bot_garantia1;
             this.CmdIntercambiar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.CmdIntercambiar.Location = new System.Drawing.Point(166, 93);
+            this.CmdIntercambiar.Location = new System.Drawing.Point(167, 133);
             this.CmdIntercambiar.Name = "CmdIntercambiar";
             this.CmdIntercambiar.Size = new System.Drawing.Size(124, 39);
             this.CmdIntercambiar.TabIndex = 3;
@@ -303,6 +304,7 @@
             this.label14.Size = new System.Drawing.Size(33, 13);
             this.label14.TabIndex = 2;
             this.label14.Text = "Clase";
+            this.label14.Visible = false;
             // 
             // LblNuevaClaseMovil
             // 
@@ -312,17 +314,8 @@
             this.LblNuevaClaseMovil.Size = new System.Drawing.Size(10, 13);
             this.LblNuevaClaseMovil.TabIndex = 2;
             this.LblNuevaClaseMovil.Text = "-";
+            this.LblNuevaClaseMovil.Visible = false;
             this.LblNuevaClaseMovil.Click += new System.EventHandler(this.LblClase_Click);
-            // 
-            // LblNuevoNombreMovil
-            // 
-            this.LblNuevoNombreMovil.AutoSize = true;
-            this.LblNuevoNombreMovil.Location = new System.Drawing.Point(61, 82);
-            this.LblNuevoNombreMovil.Name = "LblNuevoNombreMovil";
-            this.LblNuevoNombreMovil.Size = new System.Drawing.Size(10, 13);
-            this.LblNuevoNombreMovil.TabIndex = 2;
-            this.LblNuevoNombreMovil.Text = "-";
-            this.LblNuevoNombreMovil.Click += new System.EventHandler(this.LblNombreProd_Click);
             // 
             // button1
             // 
@@ -338,6 +331,14 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // CmbNuevoNombreMovil
+            // 
+            this.CmbNuevoNombreMovil.FormattingEnabled = true;
+            this.CmbNuevoNombreMovil.Location = new System.Drawing.Point(61, 74);
+            this.CmbNuevoNombreMovil.Name = "CmbNuevoNombreMovil";
+            this.CmbNuevoNombreMovil.Size = new System.Drawing.Size(176, 21);
+            this.CmbNuevoNombreMovil.TabIndex = 4;
             // 
             // GarantiaMovil
             // 
@@ -399,10 +400,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label LblNuevaClaseMovil;
-        private System.Windows.Forms.Label LblNuevoNombreMovil;
         private System.Windows.Forms.Button CmdIntercambiar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label LblVendedor;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox CmbNuevoNombreMovil;
     }
 }

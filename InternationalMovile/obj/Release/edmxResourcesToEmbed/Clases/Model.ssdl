@@ -6,21 +6,17 @@
     <EntitySet Name="Clientes" EntityType="IM_DB_Model.Store.Clientes" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Facturas" EntityType="IM_DB_Model.Store.Facturas" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="GastosPerdidas" EntityType="IM_DB_Model.Store.GastosPerdidas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NCFs" EntityType="IM_DB_Model.Store.NCFs" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Nombres_Productos" EntityType="IM_DB_Model.Store.Nombres_Productos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Nota_Credito" EntityType="IM_DB_Model.Store.Nota_Credito" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Parametros_Generales" EntityType="IM_DB_Model.Store.Parametros_Generales" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Productos" EntityType="IM_DB_Model.Store.Productos" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Productos_V" EntityType="IM_DB_Model.Store.Productos_V" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tipo_Pago" EntityType="IM_DB_Model.Store.Tipo_Pago" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Tipos_ID_Cliente" EntityType="IM_DB_Model.Store.Tipos_ID_Cliente" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Users" EntityType="IM_DB_Model.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VentaInmediata" EntityType="IM_DB_Model.Store.VentaInmediata" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Ventas" EntityType="IM_DB_Model.Store.Ventas" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="FK_Fact_Client" Association="IM_DB_Model.Store.FK_Fact_Client">
-      <End Role="Clientes" EntitySet="Clientes" />
-      <End Role="Facturas" EntitySet="Facturas" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Venta_Factura" Association="IM_DB_Model.Store.FK_Venta_Factura">
-      <End Role="Facturas" EntitySet="Facturas" />
-      <End Role="Ventas" EntitySet="Ventas" />
-    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Cargos">
     <Key>
@@ -48,17 +44,25 @@
     <Property Name="Telefono2" Type="varchar" MaxLength="30" />
     <Property Name="Correo" Type="varchar" MaxLength="100" />
     <Property Name="Comentario" Type="varchar" MaxLength="500" />
+    <Property Name="RNC" Type="varchar" Nullable="false" MaxLength="100" />
   </EntityType>
   <EntityType Name="Facturas">
     <Key>
       <PropertyRef Name="ID_Factura" />
     </Key>
-    <Property Name="ID_Factura" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Factura" Type="int" Nullable="false" />
     <Property Name="Cliente" Type="varchar" MaxLength="50" />
     <Property Name="Cant_Articulos" Type="int" Nullable="false" />
     <Property Name="Monto_Factura" Type="decimal" Nullable="false" Scale="2" />
     <Property Name="Fecha" Type="datetime" Nullable="false" />
     <Property Name="vendedor" Type="varchar" MaxLength="100" />
+    <Property Name="NCF" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="TipoNCF" Type="varchar" MaxLength="50" />
+    <Property Name="TipoPago" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="ReferenciaDePago" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="Monto" Type="decimal" Nullable="false" Scale="2" />
+    <Property Name="Anulada" Type="bit" />
+    <Property Name="Tipo_Documento" Type="varchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="GastosPerdidas">
     <Key>
@@ -71,12 +75,41 @@
     <Property Name="Usuario" Type="varchar" MaxLength="50" />
     <Property Name="Comentario" Type="varchar" MaxLength="500" />
   </EntityType>
+  <EntityType Name="NCFs">
+    <Key>
+      <PropertyRef Name="Numero_NCF" />
+    </Key>
+    <Property Name="Numero_NCF" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="NCF_Modificado" Type="varchar" MaxLength="100" />
+    <Property Name="Id_Tipo_NCF" Type="int" Nullable="false" />
+    <Property Name="Id_Cliente" Type="varchar" MaxLength="200" />
+    <Property Name="Tipo_Cliente" Type="int" />
+    <Property Name="Anio_Mes" Type="varchar" MaxLength="6" />
+    <Property Name="Dia" Type="varchar" MaxLength="2" />
+    <Property Name="Itebis" Type="decimal" Scale="2" />
+    <Property Name="Monto" Type="decimal" Scale="2" />
+  </EntityType>
   <EntityType Name="Nombres_Productos">
     <Key>
       <PropertyRef Name="ID_Nombre_Productos" />
     </Key>
     <Property Name="ID_Nombre_Productos" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Nota_Credito">
+    <Key>
+      <PropertyRef Name="ID_Nota_Credito" />
+    </Key>
+    <Property Name="ID_Nota_Credito" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Numero_NCF" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="NCF_Modificado" Type="varchar" MaxLength="100" />
+    <Property Name="Id_Tipo_NCF" Type="int" Nullable="false" />
+    <Property Name="Id_Cliente" Type="varchar" MaxLength="200" />
+    <Property Name="Tipo_Cliente" Type="int" />
+    <Property Name="Anio_Mes" Type="varchar" MaxLength="6" />
+    <Property Name="Dia" Type="varchar" MaxLength="2" />
+    <Property Name="Itebis" Type="decimal" Scale="2" />
+    <Property Name="Monto" Type="decimal" Scale="2" />
   </EntityType>
   <EntityType Name="Parametros_Generales">
     <Key>
@@ -105,6 +138,13 @@
     <Property Name="Precio_Costo" Type="decimal" Nullable="false" Scale="2" />
     <Property Name="Fecha_Ingreso" Type="datetime" Nullable="false" />
   </EntityType>
+  <EntityType Name="Tipo_Pago">
+    <Key>
+      <PropertyRef Name="Id_TipoPago" />
+    </Key>
+    <Property Name="Id_TipoPago" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
   <EntityType Name="Tipos_ID_Cliente">
     <Key>
       <PropertyRef Name="ID_TipoID" />
@@ -126,6 +166,17 @@
     <Property Name="Direccion" Type="varchar" MaxLength="250" />
     <Property Name="Cargo" Type="int" />
   </EntityType>
+  <EntityType Name="VentaInmediata">
+    <Key>
+      <PropertyRef Name="Id_Venta" />
+    </Key>
+    <Property Name="Id_Venta" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="factura" Type="int" />
+    <Property Name="id_Nombre_Producto" Type="int" />
+    <Property Name="IMEI" Type="varchar" MaxLength="20" />
+    <Property Name="precio" Type="decimal" Scale="2" />
+    <Property Name="fecha" Type="datetime" />
+  </EntityType>
   <EntityType Name="Ventas">
     <Key>
       <PropertyRef Name="ID_Venta" />
@@ -135,28 +186,4 @@
     <Property Name="Producto" Type="varchar" MaxLength="35" />
     <Property Name="Precio_Venta" Type="decimal" Nullable="false" Scale="2" />
   </EntityType>
-  <Association Name="FK_Fact_Client">
-    <End Role="Clientes" Type="IM_DB_Model.Store.Clientes" Multiplicity="0..1" />
-    <End Role="Facturas" Type="IM_DB_Model.Store.Facturas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Clientes">
-        <PropertyRef Name="Cedula_RNC" />
-      </Principal>
-      <Dependent Role="Facturas">
-        <PropertyRef Name="Cliente" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Venta_Factura">
-    <End Role="Facturas" Type="IM_DB_Model.Store.Facturas" Multiplicity="1" />
-    <End Role="Ventas" Type="IM_DB_Model.Store.Ventas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Facturas">
-        <PropertyRef Name="ID_Factura" />
-      </Principal>
-      <Dependent Role="Ventas">
-        <PropertyRef Name="Factura" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema>

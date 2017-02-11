@@ -39,7 +39,7 @@ namespace InternationalMovile
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            CargarParametros();
+            //CargarParametros();
             Application.Run(new Procesos.FrmLogIn());
         }
 

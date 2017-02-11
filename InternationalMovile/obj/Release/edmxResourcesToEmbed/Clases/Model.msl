@@ -28,6 +28,7 @@
           <ScalarProperty Name="Telefono2" ColumnName="Telefono2" />
           <ScalarProperty Name="Correo" ColumnName="Correo" />
           <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+          <ScalarProperty Name="RNC" ColumnName="RNC" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -40,6 +41,13 @@
           <ScalarProperty Name="Monto_Factura" ColumnName="Monto_Factura" />
           <ScalarProperty Name="Fecha" ColumnName="Fecha" />
           <ScalarProperty Name="vendedor" ColumnName="vendedor" />
+          <ScalarProperty Name="NCF" ColumnName="NCF" />
+          <ScalarProperty Name="TipoNCF" ColumnName="TipoNCF" />
+          <ScalarProperty Name="TipoPago" ColumnName="TipoPago" />
+          <ScalarProperty Name="ReferenciaDePago" ColumnName="ReferenciaDePago" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="Anulada" ColumnName="Anulada" />
+          <ScalarProperty Name="Tipo_Documento" ColumnName="Tipo_Documento" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -55,11 +63,42 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="NCFs">
+      <EntityTypeMapping TypeName="IM_DB_Model.NCFs">
+        <MappingFragment StoreEntitySet="NCFs">
+          <ScalarProperty Name="Numero_NCF" ColumnName="Numero_NCF" />
+          <ScalarProperty Name="NCF_Modificado" ColumnName="NCF_Modificado" />
+          <ScalarProperty Name="Id_Tipo_NCF" ColumnName="Id_Tipo_NCF" />
+          <ScalarProperty Name="Id_Cliente" ColumnName="Id_Cliente" />
+          <ScalarProperty Name="Tipo_Cliente" ColumnName="Tipo_Cliente" />
+          <ScalarProperty Name="Anio_Mes" ColumnName="Anio_Mes" />
+          <ScalarProperty Name="Dia" ColumnName="Dia" />
+          <ScalarProperty Name="Itebis" ColumnName="Itebis" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Nombres_Productos">
       <EntityTypeMapping TypeName="IM_DB_Model.Nombres_Productos">
         <MappingFragment StoreEntitySet="Nombres_Productos">
           <ScalarProperty Name="ID_Nombre_Productos" ColumnName="ID_Nombre_Productos" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nota_Credito">
+      <EntityTypeMapping TypeName="IM_DB_Model.Nota_Credito">
+        <MappingFragment StoreEntitySet="Nota_Credito">
+          <ScalarProperty Name="ID_Nota_Credito" ColumnName="ID_Nota_Credito" />
+          <ScalarProperty Name="Numero_NCF" ColumnName="Numero_NCF" />
+          <ScalarProperty Name="NCF_Modificado" ColumnName="NCF_Modificado" />
+          <ScalarProperty Name="Id_Tipo_NCF" ColumnName="Id_Tipo_NCF" />
+          <ScalarProperty Name="Id_Cliente" ColumnName="Id_Cliente" />
+          <ScalarProperty Name="Tipo_Cliente" ColumnName="Tipo_Cliente" />
+          <ScalarProperty Name="Anio_Mes" ColumnName="Anio_Mes" />
+          <ScalarProperty Name="Dia" ColumnName="Dia" />
+          <ScalarProperty Name="Itebis" ColumnName="Itebis" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -93,6 +132,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Tipo_Pago">
+      <EntityTypeMapping TypeName="IM_DB_Model.Tipo_Pago">
+        <MappingFragment StoreEntitySet="Tipo_Pago">
+          <ScalarProperty Name="Id_TipoPago" ColumnName="Id_TipoPago" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Tipos_ID_Cliente">
       <EntityTypeMapping TypeName="IM_DB_Model.Tipos_ID_Cliente">
         <MappingFragment StoreEntitySet="Tipos_ID_Cliente">
@@ -113,6 +160,18 @@
           <ScalarProperty Name="Telefono_Local" ColumnName="Telefono_Local" />
           <ScalarProperty Name="Direccion" ColumnName="Direccion" />
           <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VentaInmediata">
+      <EntityTypeMapping TypeName="IM_DB_Model.VentaInmediata">
+        <MappingFragment StoreEntitySet="VentaInmediata">
+          <ScalarProperty Name="Id_Venta" ColumnName="Id_Venta" />
+          <ScalarProperty Name="factura" ColumnName="factura" />
+          <ScalarProperty Name="id_Nombre_Producto" ColumnName="id_Nombre_Producto" />
+          <ScalarProperty Name="IMEI" ColumnName="IMEI" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

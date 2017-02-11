@@ -38,7 +38,7 @@ namespace InternationalMovile.Mantenimientos
 
                     var cliente = DB.Clientes.Where(cl => cl.Cedula_RNC == esteCliente.Cedula_RNC).First();
 
-                    //cliente.Cedula_RNC = TxtIDCliente.Text;
+                    cliente.Cedula_RNC = TxtIDCliente.Text;
                     cliente.Comentario = TxtCommentario.Text;
                     cliente.Correo = TxtCorreo.Text;
                     cliente.Direccion = TxtDireccion.Text;
@@ -46,6 +46,7 @@ namespace InternationalMovile.Mantenimientos
                     cliente.Telefono1 = TxtTelefono1.Text;
                     cliente.Telefono2 = TxtTelefono2.Text;
                     cliente.TipoID = (int)CmbTipoID.SelectedValue;
+                    //cliente.RNC = TxtRnc.Text;
 
                     DB.SaveChanges();
                 }
@@ -54,14 +55,15 @@ namespace InternationalMovile.Mantenimientos
 
                     DB.Clientes.Add(new Clases.Clientes()
                     {
-                        Cedula_RNC = TxtIDCliente.Text.Trim() == "" ? null : TxtIDCliente.Text,
-                        TipoID = int.Parse(CmbTipoID.SelectedValue.ToString()),
+                        Cedula_RNC = TxtIDCliente.Text,
+                        TipoID = 1,
                         Comentario = TxtCommentario.Text.Trim() == "" ? null : TxtCommentario.Text,
                         Correo = TxtCorreo.Text.Trim() == "" ? null : TxtCorreo.Text,
                         Direccion = TxtDireccion.Text.Trim() == "" ? null : TxtDireccion.Text,
                         Nombre = TxtNombre.Text.Trim() == "" ? null : TxtNombre.Text,
                         Telefono1 = TxtTelefono1.Text.Trim() == "" ? null : TxtTelefono1.Text,
                         Telefono2 = TxtTelefono2.Text.Trim() == "" ? null : TxtTelefono2.Text,
+                        //RNC = TxtRnc.Text.Trim() == "" ? null : TxtRnc.Text,
 
                     });
                     DB.SaveChanges();
@@ -223,6 +225,11 @@ namespace InternationalMovile.Mantenimientos
             {
                 return;
             }
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

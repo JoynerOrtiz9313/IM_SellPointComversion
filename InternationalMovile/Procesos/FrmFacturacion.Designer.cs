@@ -45,11 +45,13 @@
             this.l = new System.Windows.Forms.Label();
             this.LblTotal = new System.Windows.Forms.Label();
             this.ChkPreciosPreferenciales = new System.Windows.Forms.CheckBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.CmdFacturar = new System.Windows.Forms.Button();
             this.CmdCotizacion = new System.Windows.Forms.Button();
             this.CmdQuitarProd = new System.Windows.Forms.Button();
             this.CmdAgregarProd = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // TxtID_Prod
@@ -196,6 +198,32 @@
             this.ChkPreciosPreferenciales.Leave += new System.EventHandler(this.ChkPreciosPreferenciales_Leave);
             this.ChkPreciosPreferenciales.MouseEnter += new System.EventHandler(this.ChkPreciosPreferenciales_MouseEnter);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Enabled = false;
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(12, 42);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(320, 26);
+            this.dateTimePicker1.TabIndex = 9;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(525, 65);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(483, 72);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "label5";
+            // 
             // CmdFacturar
             // 
             this.CmdFacturar.Image = ((System.Drawing.Image)(resources.GetObject("CmdFacturar.Image")));
@@ -252,21 +280,14 @@
             this.CmdAgregarProd.UseVisualStyleBackColor = false;
             this.CmdAgregarProd.Click += new System.EventHandler(this.CmdAgregarProd_Click);
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Enabled = false;
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(12, 42);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(320, 26);
-            this.dateTimePicker1.TabIndex = 9;
-            // 
             // FrmFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(648, 299);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.ChkPreciosPreferenciales);
             this.Controls.Add(this.LblTotal);
@@ -321,5 +342,7 @@
         private System.Windows.Forms.Label LblTotal;
         private System.Windows.Forms.CheckBox ChkPreciosPreferenciales;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label5;
     }
 }

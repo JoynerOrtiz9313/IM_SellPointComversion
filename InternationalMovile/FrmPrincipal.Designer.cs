@@ -38,28 +38,31 @@
             this.claseProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.companiasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.procesosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.filtroAvanzadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entradaInventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.garantiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportarPerdidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salirDelSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rEPORTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.CmdMantProducto = new System.Windows.Forms.PictureBox();
-            this.CmdLlamarFactura = new System.Windows.Forms.PictureBox();
-            this.CmdFiltros = new System.Windows.Forms.PictureBox();
-            this.CmdGarantia = new System.Windows.Forms.PictureBox();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.reporteGastosYPeridasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteExistenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteGananciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirDelSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.CmdGarantia = new System.Windows.Forms.PictureBox();
+            this.CmdFiltros = new System.Windows.Forms.PictureBox();
+            this.CmdLlamarFactura = new System.Windows.Forms.PictureBox();
+            this.CmdMantProducto = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CmdMantProducto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CmdLlamarFactura)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CmdFiltros)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CmdGarantia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CmdFiltros)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CmdLlamarFactura)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CmdMantProducto)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -71,7 +74,7 @@
             this.salirDelSistemaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(830, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1007, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -83,7 +86,8 @@
             this.nombresProductosToolStripMenuItem,
             this.claseProductosToolStripMenuItem,
             this.productosToolStripMenuItem,
-            this.usuariosToolStripMenuItem});
+            this.usuariosToolStripMenuItem,
+            this.companiasToolStripMenuItem});
             this.mantenimientosToolStripMenuItem.Image = global::InternationalMovile.Properties.Resources.ic_menu_refresh;
             this.mantenimientosToolStripMenuItem.Name = "mantenimientosToolStripMenuItem";
             this.mantenimientosToolStripMenuItem.Size = new System.Drawing.Size(122, 20);
@@ -130,6 +134,13 @@
             this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
+            // 
+            // companiasToolStripMenuItem
+            // 
+            this.companiasToolStripMenuItem.Name = "companiasToolStripMenuItem";
+            this.companiasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.companiasToolStripMenuItem.Text = "Companias";
+            this.companiasToolStripMenuItem.Click += new System.EventHandler(this.companiasToolStripMenuItem_Click);
             // 
             // procesosToolStripMenuItem
             // 
@@ -178,14 +189,6 @@
             this.reportarPerdidaToolStripMenuItem.Text = "Reportar Perdida";
             this.reportarPerdidaToolStripMenuItem.Click += new System.EventHandler(this.reportarPerdidaToolStripMenuItem_Click);
             // 
-            // salirDelSistemaToolStripMenuItem
-            // 
-            this.salirDelSistemaToolStripMenuItem.Image = global::InternationalMovile.Properties.Resources.BOT_OFF;
-            this.salirDelSistemaToolStripMenuItem.Name = "salirDelSistemaToolStripMenuItem";
-            this.salirDelSistemaToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
-            this.salirDelSistemaToolStripMenuItem.Text = "Log Off";
-            this.salirDelSistemaToolStripMenuItem.Click += new System.EventHandler(this.salirDelSistemaToolStripMenuItem_Click);
-            // 
             // rEPORTESToolStripMenuItem
             // 
             this.rEPORTESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -196,54 +199,6 @@
             this.rEPORTESToolStripMenuItem.Name = "rEPORTESToolStripMenuItem";
             this.rEPORTESToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.rEPORTESToolStripMenuItem.Text = "Reportes";
-            // 
-            // CmdMantProducto
-            // 
-            this.CmdMantProducto.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CmdMantProducto.BackColor = System.Drawing.Color.White;
-            this.CmdMantProducto.Image = global::InternationalMovile.Properties.Resources.Bot_mantenimiento;
-            this.CmdMantProducto.Location = new System.Drawing.Point(122, 192);
-            this.CmdMantProducto.Name = "CmdMantProducto";
-            this.CmdMantProducto.Size = new System.Drawing.Size(155, 157);
-            this.CmdMantProducto.TabIndex = 1;
-            this.CmdMantProducto.TabStop = false;
-            this.CmdMantProducto.Click += new System.EventHandler(this.CmdMantProducto_Click);
-            // 
-            // CmdLlamarFactura
-            // 
-            this.CmdLlamarFactura.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CmdLlamarFactura.BackColor = System.Drawing.Color.White;
-            this.CmdLlamarFactura.Image = global::InternationalMovile.Properties.Resources.Bot_Facturacion;
-            this.CmdLlamarFactura.Location = new System.Drawing.Point(345, 50);
-            this.CmdLlamarFactura.Name = "CmdLlamarFactura";
-            this.CmdLlamarFactura.Size = new System.Drawing.Size(174, 173);
-            this.CmdLlamarFactura.TabIndex = 1;
-            this.CmdLlamarFactura.TabStop = false;
-            this.CmdLlamarFactura.Click += new System.EventHandler(this.CmdLlamarFactura_Click);
-            // 
-            // CmdFiltros
-            // 
-            this.CmdFiltros.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CmdFiltros.BackColor = System.Drawing.Color.White;
-            this.CmdFiltros.Image = global::InternationalMovile.Properties.Resources.Bot_filtro1;
-            this.CmdFiltros.Location = new System.Drawing.Point(363, 286);
-            this.CmdFiltros.Name = "CmdFiltros";
-            this.CmdFiltros.Size = new System.Drawing.Size(174, 173);
-            this.CmdFiltros.TabIndex = 1;
-            this.CmdFiltros.TabStop = false;
-            this.CmdFiltros.Click += new System.EventHandler(this.CmdFiltros_Click);
-            // 
-            // CmdGarantia
-            // 
-            this.CmdGarantia.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CmdGarantia.BackColor = System.Drawing.SystemColors.Control;
-            this.CmdGarantia.Image = global::InternationalMovile.Properties.Resources.Bot_garantia;
-            this.CmdGarantia.Location = new System.Drawing.Point(581, 194);
-            this.CmdGarantia.Name = "CmdGarantia";
-            this.CmdGarantia.Size = new System.Drawing.Size(174, 167);
-            this.CmdGarantia.TabIndex = 1;
-            this.CmdGarantia.TabStop = false;
-            this.CmdGarantia.Click += new System.EventHandler(this.CmdGarantia_Click);
             // 
             // reporteGastosYPeridasToolStripMenuItem
             // 
@@ -269,13 +224,81 @@
             this.reporteGananciasToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
             this.reporteGananciasToolStripMenuItem.Text = "Reporte Ganancias";
             // 
+            // salirDelSistemaToolStripMenuItem
+            // 
+            this.salirDelSistemaToolStripMenuItem.Image = global::InternationalMovile.Properties.Resources.BOT_OFF;
+            this.salirDelSistemaToolStripMenuItem.Name = "salirDelSistemaToolStripMenuItem";
+            this.salirDelSistemaToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.salirDelSistemaToolStripMenuItem.Text = "Log Off";
+            this.salirDelSistemaToolStripMenuItem.Click += new System.EventHandler(this.salirDelSistemaToolStripMenuItem_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Image = global::InternationalMovile.Properties.Resources.descarga;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 27);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(202, 200);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // CmdGarantia
+            // 
+            this.CmdGarantia.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CmdGarantia.BackColor = System.Drawing.SystemColors.Control;
+            this.CmdGarantia.Image = global::InternationalMovile.Properties.Resources.Bot_garantia;
+            this.CmdGarantia.Location = new System.Drawing.Point(606, 27);
+            this.CmdGarantia.Name = "CmdGarantia";
+            this.CmdGarantia.Size = new System.Drawing.Size(174, 200);
+            this.CmdGarantia.TabIndex = 1;
+            this.CmdGarantia.TabStop = false;
+            this.CmdGarantia.Click += new System.EventHandler(this.CmdGarantia_Click);
+            // 
+            // CmdFiltros
+            // 
+            this.CmdFiltros.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CmdFiltros.BackColor = System.Drawing.Color.White;
+            this.CmdFiltros.Image = global::InternationalMovile.Properties.Resources.Bot_filtro1;
+            this.CmdFiltros.Location = new System.Drawing.Point(786, 27);
+            this.CmdFiltros.Name = "CmdFiltros";
+            this.CmdFiltros.Size = new System.Drawing.Size(174, 200);
+            this.CmdFiltros.TabIndex = 1;
+            this.CmdFiltros.TabStop = false;
+            this.CmdFiltros.Click += new System.EventHandler(this.CmdFiltros_Click);
+            // 
+            // CmdLlamarFactura
+            // 
+            this.CmdLlamarFactura.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CmdLlamarFactura.BackColor = System.Drawing.Color.White;
+            this.CmdLlamarFactura.Image = global::InternationalMovile.Properties.Resources.Bot_Facturacion;
+            this.CmdLlamarFactura.Location = new System.Drawing.Point(238, 27);
+            this.CmdLlamarFactura.Name = "CmdLlamarFactura";
+            this.CmdLlamarFactura.Size = new System.Drawing.Size(171, 200);
+            this.CmdLlamarFactura.TabIndex = 1;
+            this.CmdLlamarFactura.TabStop = false;
+            this.CmdLlamarFactura.Click += new System.EventHandler(this.CmdLlamarFactura_Click);
+            // 
+            // CmdMantProducto
+            // 
+            this.CmdMantProducto.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CmdMantProducto.BackColor = System.Drawing.Color.White;
+            this.CmdMantProducto.Image = global::InternationalMovile.Properties.Resources.Bot_mantenimiento;
+            this.CmdMantProducto.Location = new System.Drawing.Point(429, 27);
+            this.CmdMantProducto.Name = "CmdMantProducto";
+            this.CmdMantProducto.Size = new System.Drawing.Size(155, 200);
+            this.CmdMantProducto.TabIndex = 1;
+            this.CmdMantProducto.TabStop = false;
+            this.CmdMantProducto.Click += new System.EventHandler(this.CmdMantProducto_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.BackgroundImage = global::InternationalMovile.Properties.Resources.fondo;
-            this.ClientSize = new System.Drawing.Size(830, 478);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(1007, 478);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.CmdGarantia);
             this.Controls.Add(this.CmdFiltros);
             this.Controls.Add(this.CmdLlamarFactura);
@@ -294,10 +317,11 @@
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CmdMantProducto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CmdLlamarFactura)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CmdFiltros)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CmdGarantia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CmdFiltros)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CmdLlamarFactura)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CmdMantProducto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -330,6 +354,8 @@
         private System.Windows.Forms.ToolStripMenuItem reporteExistenciaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteVentasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteGananciasToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem companiasToolStripMenuItem;
     }
 }
 

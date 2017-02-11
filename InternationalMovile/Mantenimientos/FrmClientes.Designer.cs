@@ -75,7 +75,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 29);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(532, 230);
+            this.tabControl1.Size = new System.Drawing.Size(464, 230);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -170,67 +170,69 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(524, 204);
+            this.tabPage2.Size = new System.Drawing.Size(456, 204);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Registro";
             this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // CmbTipoID
             // 
             this.CmbTipoID.FormattingEnabled = true;
-            this.CmbTipoID.Location = new System.Drawing.Point(67, 63);
+            this.CmbTipoID.Location = new System.Drawing.Point(296, 15);
             this.CmbTipoID.Name = "CmbTipoID";
             this.CmbTipoID.Size = new System.Drawing.Size(121, 21);
             this.CmbTipoID.TabIndex = 1;
             // 
             // TxtCommentario
             // 
-            this.TxtCommentario.Location = new System.Drawing.Point(317, 139);
+            this.TxtCommentario.Location = new System.Drawing.Point(67, 146);
             this.TxtCommentario.Multiline = true;
             this.TxtCommentario.Name = "TxtCommentario";
-            this.TxtCommentario.Size = new System.Drawing.Size(174, 55);
+            this.TxtCommentario.Size = new System.Drawing.Size(350, 25);
             this.TxtCommentario.TabIndex = 7;
             // 
             // TxtDireccion
             // 
-            this.TxtDireccion.Location = new System.Drawing.Point(67, 143);
+            this.TxtDireccion.Location = new System.Drawing.Point(67, 119);
             this.TxtDireccion.Multiline = true;
             this.TxtDireccion.Name = "TxtDireccion";
-            this.TxtDireccion.Size = new System.Drawing.Size(178, 55);
+            this.TxtDireccion.Size = new System.Drawing.Size(350, 21);
             this.TxtDireccion.TabIndex = 3;
             // 
             // TxtCorreo
             // 
-            this.TxtCorreo.Location = new System.Drawing.Point(317, 98);
+            this.TxtCorreo.Location = new System.Drawing.Point(467, 20);
             this.TxtCorreo.Name = "TxtCorreo";
             this.TxtCorreo.Size = new System.Drawing.Size(100, 20);
             this.TxtCorreo.TabIndex = 6;
+            this.TxtCorreo.Visible = false;
             // 
             // TxtTelefono2
             // 
-            this.TxtTelefono2.Location = new System.Drawing.Point(317, 59);
+            this.TxtTelefono2.Location = new System.Drawing.Point(297, 82);
             this.TxtTelefono2.Name = "TxtTelefono2";
-            this.TxtTelefono2.Size = new System.Drawing.Size(100, 20);
+            this.TxtTelefono2.Size = new System.Drawing.Size(120, 20);
             this.TxtTelefono2.TabIndex = 5;
             // 
             // TxtNombre
             // 
-            this.TxtNombre.Location = new System.Drawing.Point(67, 102);
+            this.TxtNombre.Location = new System.Drawing.Point(67, 52);
             this.TxtNombre.Name = "TxtNombre";
-            this.TxtNombre.Size = new System.Drawing.Size(100, 20);
+            this.TxtNombre.Size = new System.Drawing.Size(350, 20);
             this.TxtNombre.TabIndex = 2;
             // 
             // TxtTelefono1
             // 
-            this.TxtTelefono1.Location = new System.Drawing.Point(317, 16);
+            this.TxtTelefono1.Location = new System.Drawing.Point(67, 82);
             this.TxtTelefono1.Name = "TxtTelefono1";
-            this.TxtTelefono1.Size = new System.Drawing.Size(100, 20);
+            this.TxtTelefono1.Size = new System.Drawing.Size(163, 20);
             this.TxtTelefono1.TabIndex = 4;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(251, 146);
+            this.label8.Location = new System.Drawing.Point(1, 153);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(60, 13);
             this.label8.TabIndex = 0;
@@ -246,16 +248,17 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(273, 105);
+            this.label7.Location = new System.Drawing.Point(423, 27);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(38, 13);
             this.label7.TabIndex = 0;
             this.label7.Text = "Correo";
+            this.label7.Visible = false;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 146);
+            this.label4.Location = new System.Drawing.Point(9, 122);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 0;
@@ -264,7 +267,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(256, 62);
+            this.label6.Location = new System.Drawing.Point(236, 85);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 13);
             this.label6.TabIndex = 0;
@@ -273,7 +276,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 105);
+            this.label3.Location = new System.Drawing.Point(17, 55);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 0;
@@ -282,7 +285,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(256, 23);
+            this.label5.Location = new System.Drawing.Point(6, 89);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 13);
             this.label5.TabIndex = 0;
@@ -291,7 +294,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 70);
+            this.label2.Location = new System.Drawing.Point(248, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 13);
             this.label2.TabIndex = 0;
@@ -300,11 +303,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 23);
+            this.label1.Location = new System.Drawing.Point(7, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 13);
+            this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "ID";
+            this.label1.Text = "Ced/RNC";
             // 
             // menuStrip1
             // 
@@ -314,7 +317,7 @@
             this.eliminarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(548, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(480, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -346,13 +349,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(548, 262);
+            this.ClientSize = new System.Drawing.Size(480, 262);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximumSize = new System.Drawing.Size(564, 301);
-            this.MinimumSize = new System.Drawing.Size(564, 301);
             this.Name = "FrmClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimiento de clientes";
